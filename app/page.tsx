@@ -58,13 +58,30 @@ export default function Home() {
 
         {/* COLUNA DIREITA (3 colunas) */}
         <aside className="col-span-3 space-y-4">
-          {/* PLAYER DE MÚSICA */}
-          <div className="bg-[#1a1a1a] p-3 rounded-md border-b-4 border-gray-700">
-            <div className="text-[9px] text-green-400 font-mono mb-1">WINAMP - 01:23</div>
-            <div className="bg-gray-800 h-1 w-full rounded-full">
-              <div className="bg-green-500 w-1/2 h-full"></div>
+
+          {/* PLAYER DE MÚSICA ESTILO WINAMP */}
+          <div className="bg-[#2b2b2b] border-2 border-gray-400 p-1 shadow-black shadow-lg w-full max-w-[250px] font-mono">
+            <div className="bg-black p-2 border border-gray-600 flex flex-col">
+              <div className="flex justify-between items-start mb-1">
+                <span className="text-[10px] text-green-400">WINAMP</span>
+                <span className="text-[10px] text-green-400 animate-pulse">02:45</span>
+              </div>
+
+              <div className="bg-black border border-green-900/30 overflow-hidden mb-2 h-6 flex items-center">
+                <marquee className="text-green-500 text-xs">
+                  Linkin Park - Numb (Official Audio).mp3  *** Playing from Spotify API
+                </marquee>
+              </div>
+
+              {/* Esqueleto dos botões do player */}
+              <div className="flex gap-1 justify-center">
+                {['|<<', '>', '||', '[]', '>>|'].map((btn) => (
+                  <button key={btn} className="bg-gray-700 border border-gray-500 text-[8px] text-gray-300 px-1 hover:bg-gray-600 active:bg-black">
+                    {btn}
+                  </button>
+                ))}
+              </div>
             </div>
-            <div className="mt-2 text-[10px] text-white truncate">Linkin Park - Numb.mp3</div>
           </div>
 
           {/* STATUS DA PLANTINHA */}
