@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import XPButton from '../components/XPButton';
+import ScrapCard from '../components/ScrapCard';
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#D6E4FF]">
@@ -25,7 +27,7 @@ export default function Home() {
             <div className="aspect-square bg-[#E8EEFA] border border-[#A7C5FF] flex items-center justify-center mb-4">
               <span className="text-[#4169E1] text-sm">Sua Foto</span>
             </div>
-            <h2 className="font-bold text-[#4169E1] text-lg text-center">Thiago</h2>
+            <h2 className="font-bold text-[#4169E1] text-lg text-center">Thiago Melo</h2>
             <div className="mt-4 space-y-2 text-xs text-gray-600 border-t pt-2">
               <p>🇧🇷 São Paulo, Brasil</p>
               <p>🎂 01 de Jan de 2026</p>
@@ -45,14 +47,38 @@ export default function Home() {
 
         {/* COLUNA CENTRAL (6 colunas) */}
         <section className="col-span-6 space-y-4">
-          <div className="bg-white border border-[#A7C5FF] p-6 rounded shadow-sm min-h-[500px]">
-            <div className="flex justify-between items-center border-b border-[#D6E4FF] pb-2 mb-4">
-              <h3 className="font-bold text-[#4169E1]">Depoimentos (0)</h3>
-              <button className="text-[10px] bg-[#4169E1] text-white px-2 py-1 rounded">Escrever</button>
+          {/* ÁREA DE POSTAR SCRAP */}
+          <div className="bg-white border border-[#A7C5FF] p-4 rounded shadow-sm">
+            <h3 className="text-[#4169E1] font-bold text-sm mb-3">Mural de Recados</h3>
+            <textarea
+              placeholder="Escreva um recado legal..."
+              className="w-full p-2 border border-[#D6E4FF] rounded text-sm outline-none focus:border-[#4169E1] min-h-[80px] bg-[#F9FBFF]"
+            />
+            <div className="flex justify-end mt-2">
+              <XPButton label="Enviar" />
             </div>
-            <p className="text-gray-400 text-sm italic text-center mt-10">
-              Ainda não há depoimentos aqui. Que tal pedir um para um amigo?
-            </p>
+          </div>
+
+          {/* LISTA DE SCRAPS (POST-ITS) */}
+          <div className="space-y-2">
+            <ScrapCard
+              text="Eai Thiago! Passando para deixar aquele scrap de amizade. O portfólio está ficando show!"
+              author="Dev_Retro"
+              date="06/01/2026"
+              color="#fff9c4" // Amarelinho
+            />
+            <ScrapCard
+              text="Não esquece de me add no MSN depois kkkk. Abraço!"
+              author="User90"
+              date="05/01/2026"
+              color="#e1f5fe" // Azulzinho
+            />
+          </div>
+
+          {/* DEPOIMENTOS (Abaixo do Mural) */}
+          <div className="bg-white border border-[#A7C5FF] p-4 rounded shadow-sm opacity-80">
+            <h3 className="text-gray-500 font-bold text-sm">Depoimentos Recentes</h3>
+            <p className="text-[11px] text-gray-400 italic mt-2">Nenhum depoimento aprovado ainda.</p>
           </div>
         </section>
 
