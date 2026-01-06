@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#D6E4FF]">
@@ -9,6 +10,7 @@ export default function Home() {
             <a href="#" className="hover:underline">Início</a>
             <a href="#" className="hover:underline">Perfil</a>
             <a href="#" className="hover:underline">Amigos</a>
+            <Link href="/login" className="hover:underline">Entrar</Link>
             <a href="#" className="hover:underline">Sair</a>
           </nav>
         </div>
