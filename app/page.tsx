@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import XPButton from '../components/XPButton';
 import ScrapCard from '../components/ScrapCard';
+import TestimonialCard from '../components/TestimonialCard';
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#D6E4FF]">
@@ -34,6 +35,24 @@ export default function Home() {
             </div>
           </div>
 
+          {/* MENU LATERAL */}
+          <div className="bg-white border border-[#A7C5FF] p-2 rounded shadow-sm">
+            <ul className="text-xs space-y-2">
+              <li className="flex items-center space-x-2 p-1 hover:bg-[#D6E4FF] rounded cursor-pointer">
+                <span>🏠</span> <Link href="/">Perfil</Link>
+              </li>
+              <li className="flex items-center space-x-2 p-1 hover:bg-[#D6E4FF] rounded cursor-pointer font-bold text-[#4169E1]">
+                <span>📅</span> <Link href="/eventos">Eventos</Link>
+              </li>
+              <li className="flex items-center space-x-2 p-1 hover:bg-[#D6E4FF] rounded cursor-pointer">
+                <span>📷</span> <a href="#">Fotos</a>
+              </li>
+              <li className="flex items-center space-x-2 p-1 hover:bg-[#D6E4FF] rounded cursor-pointer">
+                <span>Videos</span>
+              </li>
+            </ul>
+          </div>
+
           <div className="bg-white border border-[#A7C5FF] p-3 rounded shadow-sm">
             <h3 className="text-xs font-bold text-[#4169E1] mb-2">CONFIABILIDADE</h3>
             <div className="flex space-x-1">
@@ -47,38 +66,62 @@ export default function Home() {
 
         {/* COLUNA CENTRAL (6 colunas) */}
         <section className="col-span-6 space-y-4">
+
           {/* ÁREA DE POSTAR SCRAP */}
           <div className="bg-white border border-[#A7C5FF] p-4 rounded shadow-sm">
-            <h3 className="text-[#4169E1] font-bold text-sm mb-3">Mural de Recados</h3>
+            <h3 className="text-[#4169E1] font-bold text-sm mb-3">Mural de Recados (Scraps)</h3>
             <textarea
               placeholder="Escreva um recado legal..."
               className="w-full p-2 border border-[#D6E4FF] rounded text-sm outline-none focus:border-[#4169E1] min-h-[80px] bg-[#F9FBFF]"
             />
-            <div className="flex justify-end mt-2">
-              <XPButton label="Enviar" />
+            <div className="flex justify-between items-center mt-2">
+              {/* PALHETA DE EMOJIS SIMULADA */}
+              <div className="flex space-x-2 bg-gray-50 p-1 border border-gray-200 rounded">
+                <button className="hover:bg-gray-200 p-1 rounded transition-colors text-sm" title="Sorriso">😀</button>
+                <button className="hover:bg-gray-200 p-1 rounded transition-colors text-sm" title="Coração">💙</button>
+                <button className="hover:bg-gray-200 p-1 rounded transition-colors text-sm" title="Música">🎸</button>
+                <button className="hover:bg-gray-200 p-1 rounded transition-colors text-sm" title="Brilho">✨</button>
+                <span className="text-[10px] text-gray-400 self-center px-1 border-l ml-1">Mais...</span>
+              </div>
+
+              <XPButton label="Enviar Scrap" />
             </div>
           </div>
 
-          {/* LISTA DE SCRAPS (POST-ITS) */}
-          <div className="space-y-2">
+          {/* LISTA DE CONTEÚDO DINÂMICO */}
+          <div className="mt-8">
+            {/* RECENTE (Amarelo) */}
             <ScrapCard
-              text="Eai Thiago! Passando para deixar aquele scrap de amizade. O portfólio está ficando show!"
-              author="Dev_Retro"
-              date="06/01/2026"
-              color="#fff9c4" // Amarelinho
+              text="Dando uma passada aqui pra ver as novidades! Ficou demais esse efeito do pino vermelho. ✨"
+              author="Thiago"
+              date="Agora mesmo"
+              color="#fff9c4"
+              textColor="#000"
             />
-            <ScrapCard
-              text="Não esquece de me add no MSN depois kkkk. Abraço!"
-              author="User90"
-              date="05/01/2026"
-              color="#e1f5fe" // Azulzinho
-            />
-          </div>
 
-          {/* DEPOIMENTOS (Abaixo do Mural) */}
-          <div className="bg-white border border-[#A7C5FF] p-4 rounded shadow-sm opacity-80">
-            <h3 className="text-gray-500 font-bold text-sm">Depoimentos Recentes</h3>
-            <p className="text-[11px] text-gray-400 italic mt-2">Nenhum depoimento aprovado ainda.</p>
+            {/* ANTIGO (Azul) */}
+            <ScrapCard
+              text="Esse mural ficou muito nostálgico! Lembrei total dos scraps do Orkut. 📍"
+              author="Dev_Retro"
+              date="Há 2 dias"
+              color="#e1f5fe"
+              textColor="#003366"
+            />
+
+            {/* SEÇÃO DE DEPOIMENTOS ABAIXO */}
+            <div className="pt-6 mt-10 border-t border-dashed border-[#A7C5FF]">
+              <h4 className="text-[#4169E1] font-bold text-[12px] mb-6 uppercase tracking-[0.2em]">Depoimentos de Amigos</h4>
+
+              <TestimonialCard
+                author="Juliana"
+                text="O Thiago é um desenvolvedor super dedicado! Adorei o estilo do site. ⭐⭐⭐⭐⭐"
+              />
+
+              <TestimonialCard
+                author="Lucas_Admin"
+                text="O efeito de chat do MSN ficou perfeito. Parabéns pelo portfólio!"
+              />
+            </div>
           </div>
         </section>
 

@@ -3,18 +3,21 @@ interface ScrapProps {
     author: string;
     date: string;
     color?: string;
+    textColor?: string; // Nova prop para cor do texto
 }
 
-export default function ScrapCard({ text, author, date, color = "#fff9c4" }: ScrapProps) {
+export default function ScrapCard({ text, author, date, color = "#fff9c4", textColor = "#333" }: ScrapProps) {
     return (
         <div
             style={{ backgroundColor: color }}
-            className="p-4 shadow-md border-b-2 border-r-2 border-gray-300 relative transform rotate-1 hover:rotate-0 transition-transform mb-4"
+            className="p-5 shadow-md border-b-2 border-r-2 border-gray-300 relative transform rotate-1 hover:rotate-0 transition-transform mb-6 mt-2"
         >
-            {/* "Durex" ou Tachinha no topo */}
-            <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-3 bg-white/50 border border-white/20"></div>
+            {/* PINO VERMELHO (Canto Superior Esquerdo) */}
+            <div className="absolute -top-2 -left-2 w-4 h-4 bg-red-600 rounded-full shadow-md z-10 border-b-2 border-red-800">
+                <div className="w-1.5 h-1.5 bg-white/40 rounded-full ml-0.5 mt-0.5"></div> {/* Brilho do pino */}
+            </div>
 
-            <p className="text-gray-800 text-sm font-medium mb-3 leading-relaxed">
+            <p style={{ color: textColor }} className="text-sm font-medium mb-3 leading-relaxed">
                 {text}
             </p>
 
